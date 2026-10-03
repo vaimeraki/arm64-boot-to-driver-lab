@@ -1,0 +1,15 @@
+# third-party sources fetched at build time
+/src/
+/build/
+/out/
+# kernel module build artefacts
+*.o
+*.ko
+*.mod
+*.mod.c
+*.cmd
+.*.cmd
+modules.order
+Module.symvers
+# Arm FVP binaries must never be committed
+FVP_*/
