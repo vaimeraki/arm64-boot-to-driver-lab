@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint shell scripts
+        run: shellcheck scripts/*.sh
+
+      - name: Check Python tools
+        run: python3 -m py_compile tools/*.py
+
+      # Later steps will be added here as the project grows:
+      #   - build TF-A, EDK II and the Linux kernel
+      #   - boot the full chain in QEMU
+      #   - parse the boot log into per-stage timings
+      #   - fail if a stage is slower than its baseline
